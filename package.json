@@ -1,0 +1,14 @@
+{
+	"name": "packet-test",
+	"version": "0.0.1",
+	"description": "Packet Tester for Project Cars",
+	"author": "Phillip Millwee II",
+	"license": "MIT",
+	"engines": {
+		"node": "^6.2.0"
+	},
+	"dependencies": {
+	"mocha": "^2.5.3",
+	"chai": "^3.5.0"
+	}
+}
