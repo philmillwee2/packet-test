@@ -11,18 +11,18 @@ describe("Packet Type 0", function() {
   const zero_packet = new Packet(content);
   
   it("should return 1122 for sBuildVersion", function() {    
-    assert.equal(1122, zero_packet.sBuildVersion);
+    assert.equal(zero_packet.sBuildVersion, 1122);
   });
 
   it("should return 0 for sequenceNumber", function() {
-    assert.equal(0, zero_packet.sequenceNumber);
+    assert.equal(zero_packet.sequenceNumber, 0);
   });
 
   it("should return 0 for sPacketType", function() {
-    assert.equal(0, zero_packet.sPacketType);
+    assert.equal(zero_packet.sPacketType, 0);
   });
 
   it("should have a payload equal (0) to content", function() {
-    assert.equal(0, Buffer.compare(content, zero_packet.payload));
+    assert.equal(Buffer.compare(content, zero_packet.payload), 0);
   });
 });
