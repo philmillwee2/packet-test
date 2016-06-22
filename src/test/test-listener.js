@@ -10,15 +10,14 @@ const listener = require(join(__dirname, "../lib/listener"));
 describe("Listener", function () {
   var queue = [];
 
-  // Do I put the callback inside the location creating the listener?
   function processMessage(clientMsg) {
     queue.push(clientMsg.toString());
   }
 
-  const socket = listener(processMessage);
+  const server = listener(processMessage);
 
   it("should return 0.0.0.0 for listener address", function() {
-    const properties = socket.address();
+    const properties = server.address();
     assert.equal(properties.address, "0.0.0.0");
   });
 
@@ -26,10 +25,11 @@ describe("Listener", function () {
     const client = dgram.createSocket("udp4");
 
     client.send(Buffer.from("This is a valid message"), 5606, "localhost", function(err) {
-      client.close();
+      return new Promise(function(resolve) {
+        server.on("message", function() {
+          assert.equal(queue.pop(), "This is a valid message");
+        });
+      });
     });
-
-    // How do I process a message from the callback?
-    assert.equal(queue.pop(), "This is a valid message");
   });
 });

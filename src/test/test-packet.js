@@ -4,7 +4,7 @@ const {join} = require("path");
 const {readFileSync} = require("fs");
 const {assert} = require("chai");
 
-const Packet = require(join(__dirname, "../lib/Packet"));  
+const Packet = require(join(__dirname, "../lib/packet"));  
 
 describe("Packet Type 0", function() {
   const content = readFileSync(join(__dirname, "../../asset/packet/packet_0.bin"));
