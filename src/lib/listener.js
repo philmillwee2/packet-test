@@ -1,3 +1,5 @@
+"use strict";
+
 const dgram = require("dgram");
 
 module.exports = function listener(processMessage) { 
@@ -10,4 +12,4 @@ module.exports = function listener(processMessage) {
   server.bind(5606);
 
   return server;
-}
+};
