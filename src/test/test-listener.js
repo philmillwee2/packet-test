@@ -8,7 +8,7 @@ const util = require("util");
 const listener = require(join(__dirname, "../lib/listener"));
 
 describe("Listener", function () {
-  var queue = [];
+  let queue = [];
 
   function processMessage(clientMsg) {
     queue.push(clientMsg.toString());

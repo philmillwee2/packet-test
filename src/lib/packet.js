@@ -1,3 +1,5 @@
+"use strict";
+
 module.exports = class Packet {
   constructor(content) {
     this.sBuildVersion = content.readUInt16LE(0);
@@ -12,4 +14,4 @@ module.exports = class Packet {
     
     this.payload = Buffer.from(content);
   }
-}
+};
