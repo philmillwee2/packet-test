@@ -21,6 +21,11 @@ describe("Listener", function () {
     assert.equal(properties.address, "0.0.0.0");
   });
 
+  it("should return 5606 for the port", function() {
+    const properties = server.address();
+    assert.equal(properties.port, "5606");
+  });
+
   it("should return a valid message", function() {
     const client = dgram.createSocket("udp4");
 
