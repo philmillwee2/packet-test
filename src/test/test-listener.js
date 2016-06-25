@@ -3,7 +3,6 @@
 const {join} = require("path");
 const {assert} = require("chai");
 const dgram = require("dgram");
-const util = require("util");
 
 const listener = require(join(__dirname, "../lib/listener"));
 
